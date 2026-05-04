@@ -1,298 +1,248 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Guendouz Souleyman — Portfolio</title>
-  <meta name="description" content="Portfolio de Guendouz Souleyman, étudiant BTS SIO SISR spécialisé systèmes, réseaux et cybersécurité.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Portfolio — Guendouz Souleyman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio BTS SIO SISR de Guendouz Souleyman - Administrateur systèmes et réseaux">
 
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --blue:#00aaff;
-      --bg:#0d0d0f;
-      --bg2:#141418;
-      --text:#f0f0f0;
-      --muted:#888;
-      --border:rgba(255,255,255,.07);
-    }
+<style>
+:root{
+--blue:#00aaff;
+--bg:#0d0d0f;
+--bg2:#15151b;
+--text:#f0f0f0;
+--muted:#8c8c95;
+--border:rgba(255,255,255,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Space Grotesk',sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+nav{
+position:fixed;top:0;left:0;right:0;
+height:64px;
+display:flex;justify-content:space-between;align-items:center;
+padding:0 30px;
+background:rgba(13,13,15,.9);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+z-index:1000;
+}
+nav .logo{color:var(--blue);font-family:'JetBrains Mono'}
+nav ul{display:flex;gap:20px;list-style:none}
+nav ul a{color:var(--muted);font-size:.9em}
+nav ul a:hover{color:var(--text)}
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Space Grotesk',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
+header{
+min-height:100vh;
+display:flex;align-items:center;justify-content:center;
+text-align:center;
+padding:120px 20px;
+background:
+linear-gradient(rgba(13,13,15,.85),rgba(13,13,15,.95)),
+url("https://www.fond-ecran-hd.net/Public/uploads/2019-01-14/thumbs-1/1397.jpg") center/cover;
+}
+header h1{font-size:clamp(2.5rem,6vw,4.5rem)}
+header h1 span{color:var(--blue)}
+header p{max-width:650px;margin:20px auto;color:var(--muted)}
 
-    /* NAV */
-    nav{
-      position:fixed;
-      top:0;left:0;right:0;
-      height:60px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 32px;
-      background:rgba(13,13,15,.85);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--border);
-      z-index:100;
-      transition:box-shadow .3s;
-    }
-    nav .logo{
-      font-family:'JetBrains Mono',monospace;
-      color:var(--blue);
-      font-size:.85em;
-    }
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:28px;
-    }
-    nav a{
-      color:var(--muted);
-      text-decoration:none;
-      font-size:.9em;
-    }
-    nav a:hover{color:var(--text)}
+section{max-width:1100px;margin:auto;padding:80px 20px}
+.section-label{
+color:var(--blue);
+font-family:'JetBrains Mono';
+font-size:.75em;
+letter-spacing:.1em;
+margin-bottom:10px;
+}
+h2{font-size:2.2rem;margin-bottom:30px}
 
-    .burger{
-      display:none;
-      font-size:1.6em;
-      cursor:pointer;
-    }
+.card,.project{
+background:var(--bg2);
+border:1px solid var(--border);
+border-radius:16px;
+padding:24px;
+margin-bottom:20px;
+}
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+ul{margin:10px 0 0 18px;color:var(--muted)}
+.tag{
+display:inline-block;
+margin:6px 6px 0 0;
+padding:4px 10px;
+border:1px solid rgba(0,170,255,.3);
+border-radius:20px;
+color:var(--blue);
+font-size:.7em;
+font-family:'JetBrains Mono';
+}
+.button{
+display:inline-block;
+margin-top:14px;
+padding:10px 18px;
+border-radius:8px;
+border:1px solid var(--border);
+}
+.button:hover{border-color:var(--blue)}
 
-    /* HERO */
-    header{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:100px 20px 60px;
-      position:relative;
-    }
-    header::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url("https://www.fond-ecran-hd.net/Public/uploads/2019-01-14/thumbs-1/1397.jpg") center/cover;
-      opacity:.12;
-    }
-    header>*{position:relative}
-
-    .badge{
-      font-family:'JetBrains Mono';
-      font-size:.75em;
-      color:var(--blue);
-      border:1px solid rgba(0,170,255,.3);
-      padding:6px 14px;
-      border-radius:20px;
-      margin-bottom:20px;
-    }
-    header h1{
-      font-size:clamp(2.3em,6vw,4em);
-      line-height:1.1;
-    }
-    header h1 span{color:var(--blue)}
-    .subtitle{
-      max-width:500px;
-      color:var(--muted);
-      margin:20px auto 36px;
-    }
-
-    .button{
-      padding:12px 26px;
-      border-radius:8px;
-      font-size:.9em;
-      text-decoration:none;
-      transition:.25s;
-      display:inline-block;
-    }
-    .primary{background:var(--blue);color:#000}
-    .primary:hover{transform:translateY(-2px)}
-    .outline{
-      border:1px solid var(--border);
-      color:var(--text);
-    }
-
-    section{
-      max-width:960px;
-      margin:auto;
-      padding:80px 24px;
-    }
-    h2{margin-bottom:36px}
-
-    /* SKILLS */
-    .skills-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-      gap:14px;
-    }
-    .skill{
-      background:var(--bg2);
-      padding:18px;
-      border-radius:10px;
-      border:1px solid var(--border);
-    }
-    .bar-bg{
-      height:5px;
-      background:rgba(255,255,255,.1);
-      border-radius:5px;
-      overflow:hidden;
-      margin-top:10px;
-    }
-    .bar{
-      height:100%;
-      width:0;
-      background:linear-gradient(90deg,var(--blue),#66ccff);
-      transition:width 1s ease;
-    }
-
-    /* PROJECTS */
-    .project{
-      background:var(--bg2);
-      border:1px solid var(--border);
-      padding:26px;
-      border-radius:12px;
-      margin-bottom:20px;
-      transition:.3s;
-    }
-    .project:hover{
-      transform:translateY(-4px);
-      box-shadow:0 10px 30px rgba(0,170,255,.15);
-    }
-
-    /* CONTACT */
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-    }
-    input,textarea{
-      width:100%;
-      background:var(--bg2);
-      border:1px solid var(--border);
-      color:var(--text);
-      padding:12px;
-      border-radius:8px;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      border-top:1px solid var(--border);
-      font-family:'JetBrains Mono';
-      color:var(--muted);
-    }
-
-    /* MOBILE */
-    @media(max-width:700px){
-      nav ul{
-        position:absolute;
-        top:60px;
-        right:20px;
-        background:var(--bg2);
-        flex-direction:column;
-        padding:20px;
-        border-radius:10px;
-        display:none;
-      }
-      nav ul.active{display:flex}
-      .burger{display:block}
-      .contact-grid{grid-template-columns:1fr}
-    }
-  </style>
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid var(--border);
+color:var(--muted);
+font-family:'JetBrains Mono';
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-  <span class="logo">GS.dev</span>
-  <div class="burger">☰</div>
+  <div class="logo">GS.dev</div>
   <ul>
-    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#parcours">Parcours</a></li>
     <li><a href="#projects">Projets</a></li>
+    <li><a href="#veille">Veille</a></li>
+    <li><a href="#e6">E6</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <header>
-  <div class="badge">BTS SIO · SISR</div>
-  <h1>Guendouz<br><span>Souleyman</span></h1>
-  <p class="subtitle">Étudiant passionné par les systèmes, réseaux et la cybersécurité.</p>
-  <a href="#projects" class="button primary">Voir mes projets</a>
+  <div>
+    <h1>Guendouz<br><span>Souleyman</span></h1>
+    <p>
+      Étudiant en BTS SIO option SISR à l’IMIE Paris,
+      en alternance au Ministère de l’Intérieur.
+    </p>
+  </div>
 </header>
 
-<section id="skills">
-  <h2>Compétences</h2>
-  <div class="skills-grid">
-    <div class="skill">Windows Server<div class="bar-bg"><div class="bar" data-width="80%"></div></div></div>
-    <div class="skill">Active Directory<div class="bar-bg"><div class="bar" data-width="75%"></div></div></div>
-    <div class="skill">Linux<div class="bar-bg"><div class="bar" data-width="65%"></div></div></div>
-    <div class="skill">Réseaux TCP/IP<div class="bar-bg"><div class="bar" data-width="70%"></div></div></div>
+<section id="about">
+  <div class="section-label">Profil</div>
+  <h2>À propos de moi</h2>
+  <div class="card">
+    <p>
+      Étudiant en BTS SIO option SISR, je me spécialise dans l’administration
+      des systèmes et réseaux, la sécurité informatique et la gestion
+      d’infrastructures.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>Objectif :</strong> poursuivre en Bachelor ASRC (Administrateur
+      Systèmes, Réseaux et Cybersécurité) puis intégrer une entreprise en tant
+      qu’administrateur systèmes et réseaux.
+    </p>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="section-label">Parcours</div>
+  <h2>Mon parcours</h2>
+  <div class="card">
+    <strong>BTS SIO SISR — IMIE Paris</strong><br>
+    Septembre 2024 → Août 2026
+  </div>
+  <div class="card">
+    <strong>Alternance — Ministère de l’Intérieur</strong>
+    <ul>
+      <li>Déploiement automatisé de postes (masterisation)</li>
+      <li>Installation et configuration de postes</li>
+      <li>Support et maintenance du parc</li>
+      <li>Gestion Active Directory</li>
+      <li>Bêta‑test WAPT & serveur mail</li>
+    </ul>
   </div>
 </section>
 
 <section id="projects">
-  <h2>Projets</h2>
-  <div class="project">
-    <h3>Serveur Windows AD</h3>
-    <p>Mise en place Active Directory, DNS, DHCP sous VMware.</p>
+  <div class="section-label">Projets</div>
+  <h2>Mes projets</h2>
+
+  <div class="projects-grid">
+
+    <div class="project">
+      <h3>Serveur Active Directory</h3>
+      <p>Contrôleur de domaine Windows Server 2022 (AD, DNS, DHCP, GPO, WDS).</p>
+      <a class="button" href="docs/doc-ad.pdf" target="_blank">📄 Documentation</a>
+    </div>
+
+    <div class="project">
+      <h3>GLPI & FusionInventory</h3>
+      <p>Gestion de parc, tickets, SLA, LDAP, inventaire automatique.</p>
+      <a class="button" href="docs/projet-glpi.pdf" target="_blank">📄 Documentation</a>
+    </div>
+
+    <div class="project">
+      <h3>pfSense</h3>
+      <p>Pare-feu, NAT, DHCP, segmentation réseau LAN/WAN.</p>
+      <a class="button" href="docs/doc-pfsense.pdf" target="_blank">📄 Documentation</a>
+    </div>
+
+    <div class="project">
+      <h3>Heartbeat</h3>
+      <p>Haute disponibilité et failover sous Linux.</p>
+      <a class="button" href="docs/tp-heartbeat.pdf" target="_blank">📄 Documentation</a>
+    </div>
+
+    <div class="project">
+      <h3>Asterisk (VoIP)</h3>
+      <p>Serveur VoIP, SIP/PJSIP, extensions, dialplan.</p>
+      <a class="button" href="docs/TP-Asterisk-cl.pdf" target="_blank">📄 Documentation</a>
+    </div>
+
   </div>
-  <div class="project">
-    <h3>Portfolio Web</h3>
-    <p>Site responsive HTML / CSS dark mode.</p>
+</section>
+
+<section id="veille">
+  <div class="section-label">Veille</div>
+  <h2>Veille technologique — Cybersécurité</h2>
+  <div class="card">
+    <p>
+      Veille sur la cybersécurité des systèmes et réseaux :
+      menaces, protection des infrastructures, sécurisation AD,
+      pare-feux, analyse des logs.
+    </p>
+  </div>
+</section>
+
+<section id="e6">
+  <div class="section-label">BTS SIO</div>
+  <h2>Épreuve E6</h2>
+  <div class="projects-grid">
+    <div class="project">
+      <h3>Rsyslog</h3>
+      <p>Centralisation et analyse des journaux systèmes.</p>
+    </div>
+    <div class="project">
+      <h3>FOG</h3>
+      <p>Déploiement automatisé d’images systèmes.</p>
+    </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <div>
-      <p>Email : <strong>souleymanghuendouz20@gmail.com</strong></p>
-      <p>GitHub / LinkedIn à ajouter</p>
-    </div>
-    <form>
-      <input placeholder="Nom"><br><br>
-      <input placeholder="Email"><br><br>
-      <textarea placeholder="Message"></textarea><br><br>
-      <button class="button primary">Envoyer</button>
-    </form>
+  <div class="section-label">Contact</div>
+  <h2>Me contacter</h2>
+  <div class="card">
+    📧 <a href="mailto:souleymanguendouz20@gmail.com">souleymanguendouz20@gmail.com</a><br><br>
+    🔗 <a href="https://fr.linkedin.com/in/souleyman-guendouz-026957283" target="_blank">LinkedIn</a><br>
+    💻 <a href="https://github.com/gdz933ecole" target="_blank">GitHub</a>
   </div>
 </section>
 
 <footer>
-  © 2025 — Guendouz Souleyman
+© 2025 — Guendouz Souleyman · BTS SIO SISR
 </footer>
-
-<script>
-/* menu mobile */
-const burger=document.querySelector(".burger");
-const menu=document.querySelector("nav ul");
-burger.onclick=()=>menu.classList.toggle("active");
-
-/* navbar scroll */
-window.addEventListener("scroll",()=>{
-  document.querySelector("nav").style.boxShadow=
-    window.scrollY>20?"0 5px 20px rgba(0,0,0,.4)":"none";
-});
-
-/* skills animation */
-const bars=document.querySelectorAll(".bar");
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.style.width=e.target.dataset.width;
-    }
-  });
-},{threshold:.5});
-bars.forEach(b=>obs.observe(b));
-</script>
 
 </body>
 </html>

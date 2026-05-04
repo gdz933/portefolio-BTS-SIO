@@ -173,31 +173,31 @@ font-family:'JetBrains Mono';
     <div class="project">
       <h3>Serveur Active Directory</h3>
       <p>Contrôleur de domaine Windows Server 2022 (AD, DNS, DHCP, GPO, WDS).</p>
-      <a class="button" href="docs/doc-ad.pdf" target="_blank">📄 Documentation</a>
+      <a class="button" href="doc-ad.pdf" target="_blank">📄 Documentation</a>
     </div>
 
     <div class="project">
       <h3>GLPI & FusionInventory</h3>
       <p>Gestion de parc, tickets, SLA, LDAP, inventaire automatique.</p>
-      <a class="button" href="docs/projet-glpi.pdf" target="_blank">📄 Documentation</a>
+      <a class="button" href="projet-glpi.pdf" target="_blank">📄 Documentation</a>
     </div>
 
     <div class="project">
       <h3>pfSense</h3>
       <p>Pare-feu, NAT, DHCP, segmentation réseau LAN/WAN.</p>
-      <a class="button" href="docs/doc-pfsense.pdf" target="_blank">📄 Documentation</a>
+      <a class="button" href="doc-pfsense.pdf" target="_blank">📄 Documentation</a>
     </div>
 
     <div class="project">
       <h3>Heartbeat</h3>
       <p>Haute disponibilité et failover sous Linux.</p>
-      <a class="button" href="docs/tp-heartbeat.pdf" target="_blank">📄 Documentation</a>
+      <a class="button" href="tp-heartbeat.pdf" target="_blank">📄 Documentation</a>
     </div>
 
     <div class="project">
       <h3>Asterisk (VoIP)</h3>
       <p>Serveur VoIP, SIP/PJSIP, extensions, dialplan.</p>
-      <a class="button" href="docs/TP-Asterisk-cl.pdf" target="_blank">📄 Documentation</a>
+      <a class="button" href="TP-Asterisk-cl.pdf" target="_blank">📄 Documentation</a>
     </div>
 
   </div>

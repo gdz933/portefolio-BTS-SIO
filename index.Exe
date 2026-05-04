@@ -215,18 +215,81 @@ font-family:'JetBrains Mono';
   </div>
 </section>
 
-<section id="e6">
-  <div class="section-label">BTS SIO</div>
-  <h2>Épreuve E6</h2>
+<section id="e6" class="reveal">
+  <div class="section-top">
+    <div class="section-label">BTS SIO — Épreuve E6</div>
+    <h2>Épreuve E6 : Projets professionnels</h2>
+    <p class="section-description">
+      L’épreuve E6 présente les projets réalisés en environnement professionnel
+      ou pédagogique, mettant en œuvre des compétences en administration systèmes,
+      réseaux et cybersécurité.
+    </p>
+  </div>
+
   <div class="projects-grid">
+
+    <!-- PROJET RSYSLOG -->
     <div class="project">
-      <h3>Rsyslog</h3>
-      <p>Centralisation et analyse des journaux systèmes.</p>
+      <h3>📊 Centralisation des logs avec rsyslog</h3>
+      <p>
+        Mise en place d’un serveur de centralisation des journaux système à l’aide de
+        <strong>rsyslog</strong>, intégré à un environnement <strong>Active Directory</strong>.
+        Cette solution permet de collecter, organiser et analyser les logs de plusieurs
+        machines afin d’améliorer la supervision, la sécurité et le diagnostic des incidents.
+      </p>
+
+      <ul>
+        <li>Déploiement d’un serveur rsyslog sous Linux</li>
+        <li>Intégration au domaine Active Directory</li>
+        <li>Centralisation et structuration des logs par machine, service et date</li>
+        <li>Catégorisation des journaux (security, system, web)</li>
+        <li>Génération de logs structurés au format JSON</li>
+      </ul>
+
+      <div class="tags">
+        <span class="tag">rsyslog</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Logs</span>
+        <span class="tag">Cybersécurité</span>
+        <span class="tag">Active Directory</span>
+      </div>
+
+      rsyslog-exam-doc.pdf
+        📄 Télécharger la documentation Rsyslog
+      </a>
     </div>
+
+    <!-- PROJET FOG -->
     <div class="project">
-      <h3>FOG</h3>
-      <p>Déploiement automatisé d’images systèmes.</p>
+      <h3>🖥️ Déploiement automatisé avec FOG Project</h3>
+      <p>
+        Installation et configuration d’un serveur <strong>FOG Project</strong> sous Ubuntu Server
+        afin d’automatiser la capture et le déploiement d’images système via le démarrage réseau PXE.
+        Cette solution permet de standardiser les postes et de réduire le temps de déploiement
+        dans une infrastructure professionnelle.
+      </p>
+
+      <ul>
+        <li>Installation de FOG Project sous Ubuntu Server</li>
+        <li>Configuration du démarrage réseau PXE (DHCP, TFTP)</li>
+        <li>Capture et déploiement d’images système</li>
+        <li>Administration centralisée via l’interface web FOG</li>
+        <li>Gestion des incidents PXE et sécurisation des accès</li>
+      </ul>
+
+      <div class="tags">
+        <span class="tag">FOG</span>
+        <span class="tag">PXE</span>
+        <span class="tag">Déploiement</span>
+        <span class="tag">Ubuntu Server</span>
+        <span class="tag">Infrastructure</span>
+      </div>
+
+      documentation-fog-project.pdf
+        📄 Télécharger la documentation FOG
+      </a>
     </div>
+
   </div>
 </section>
 

@@ -10,16 +10,15 @@
 
   <style>
     :root {
-      --blue: #0077d9;
-      --blue-light: #00aaff;
+      --blue: #00aaff;
+      --blue-dark: #0077cc;
       --bg: #0d0d0f;
       --bg2: #15151b;
+      --bg3: #1c1c24;
       --text: #f0f0f0;
-      --muted: #8c8c95;
-      --border: rgba(255,255,255,.08);
-      --white-card: #ffffff;
-      --white-bg: #f4f7fb;
-      --dark-text: #162033;
+      --muted: #9a9aa3;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 18px 45px rgba(0,0,0,0.35);
     }
 
     * {
@@ -35,7 +34,10 @@
 
     body {
       font-family: 'Space Grotesk', sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(0,170,255,0.08), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0,170,255,0.05), transparent 30%),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -53,143 +55,180 @@
       right: 0;
       height: 64px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 40px;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      justify-content: space-between;
+      padding: 0 38px;
+      background: rgba(13,13,15,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
       z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     }
 
-    nav .logo {
+    .logo {
       color: var(--blue);
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
     nav ul {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
       list-style: none;
     }
 
     nav ul a {
-      color: #2f3d4f;
-      font-size: 0.95rem;
-      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
       transition: color 0.2s ease;
     }
 
     nav ul a:hover {
-      color: var(--blue);
+      color: var(--text);
     }
 
-    .theme-btn {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      border: 2px solid #e3e8ef;
-      background: #fff;
-      color: #2f3d4f;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    /* HERO */
+    /* ACCUEIL */
     header {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 20px;
+      padding: 120px 20px 70px;
       background:
-        linear-gradient(rgba(13,13,15,.82),rgba(13,13,15,.95)),
+        linear-gradient(rgba(13,13,15,.80),rgba(13,13,15,.98)),
         url("https://www.fond-ecran-hd.net/Public/uploads/2019-01-14/thumbs-1/1397.jpg") center/cover;
+    }
+
+    .badge {
+      display: inline-block;
+      color: var(--blue);
+      border: 1px solid rgba(0,170,255,0.3);
+      background: rgba(0,170,255,0.07);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      margin-bottom: 22px;
     }
 
     header h1 {
       font-size: clamp(2.8rem, 7vw, 5rem);
       line-height: 1;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      letter-spacing: -0.04em;
     }
 
     header h1 span {
-      color: var(--blue-light);
+      color: var(--blue);
     }
 
     header p {
-      max-width: 700px;
-      margin: 20px auto;
-      color: #cfd5dd;
+      max-width: 720px;
+      margin: 0 auto;
+      color: #c8c8d0;
       font-size: 1.05rem;
     }
 
     .hero-buttons {
-      margin-top: 30px;
+      margin-top: 34px;
       display: flex;
       justify-content: center;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 14px;
     }
 
     /* GLOBAL */
     section {
       max-width: 1100px;
-      margin: auto;
-      padding: 85px 20px;
+      margin: 0 auto;
+      padding: 82px 22px;
     }
 
     .section-label {
-      color: var(--blue-light);
+      color: var(--blue);
       font-family: 'JetBrains Mono', monospace;
-      font-size: .75rem;
-      letter-spacing: .1em;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 2.3rem;
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
       margin-bottom: 30px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
     }
 
-    .section-center {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-center h2 {
-      color: var(--blue);
-      margin-bottom: 8px;
-    }
-
-    .section-center p {
+    .section-intro {
       color: var(--muted);
-      max-width: 720px;
-      margin: auto;
+      max-width: 760px;
+      margin-bottom: 34px;
     }
 
     .card,
-    .project {
-      background: var(--bg2);
+    .project,
+    .experience-card,
+    .cert-card,
+    .skill-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 20px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(310px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 22px;
     }
 
+    .button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: 0.2s ease;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: rgba(0,170,255,0.07);
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: #001018;
+      border: none;
+    }
+
+    .button-primary:hover {
+      color: #001018;
+      background: #35bdff;
+    }
+
     ul {
-      margin: 12px 0 0 18px;
+      margin-top: 12px;
+      padding-left: 18px;
       color: var(--muted);
     }
 
@@ -201,232 +240,149 @@
       display: inline-block;
       margin: 8px 6px 0 0;
       padding: 4px 10px;
-      border: 1px solid rgba(0,170,255,.3);
-      border-radius: 20px;
-      color: var(--blue-light);
-      font-size: .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,170,255,0.28);
+      color: var(--blue);
       font-family: 'JetBrains Mono', monospace;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      border-color: var(--blue-light);
-      color: var(--blue-light);
-    }
-
-    .button-blue {
-      background: var(--blue);
-      color: white;
-      border: none;
-    }
-
-    .button-blue:hover {
-      background: #005fc0;
-      color: white;
+      font-size: 0.7rem;
+      background: rgba(0,170,255,0.06);
     }
 
     /* FORMATION */
-    .formation-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 20px;
+    .formation-card h3,
+    .project h3,
+    .experience-card h3,
+    .cert-card h3,
+    .skill-card h3 {
+      color: var(--text);
+      margin-bottom: 10px;
     }
 
-    /* EXPERIENCE STYLE IMAGE */
-    .light-section {
-      max-width: none;
-      background: var(--white-bg);
-      color: var(--dark-text);
+    .formation-card p,
+    .project p,
+    .experience-card p,
+    .cert-card p {
+      color: #c8c8d0;
+      font-size: 0.94rem;
     }
 
-    .light-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    .experience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 28px;
-    }
-
-    .experience-card {
-      background: #fff;
-      border: 1px solid #dbe2ea;
-      border-radius: 12px;
-      padding: 30px;
-      min-height: 440px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+    /* PROJETS */
+    .project {
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
-    .experience-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--blue);
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,170,255,0.35);
+    }
+
+    /* EXPERIENCE */
+    .experience-card {
+      min-height: 360px;
     }
 
     .experience-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 9px;
-      background: var(--blue);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0,170,255,0.12);
+      color: var(--blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       font-size: 1.25rem;
-      margin-bottom: 22px;
-    }
-
-    .experience-card h3 {
-      color: var(--blue);
-      margin-bottom: 10px;
+      margin-bottom: 18px;
     }
 
     .experience-date {
       display: inline-block;
-      padding: 6px 11px;
-      border-radius: 20px;
-      background: #ffecec;
-      color: #f04b4b;
-      font-size: 0.78rem;
-      margin-bottom: 18px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      color: var(--blue);
+      border: 1px solid rgba(0,170,255,0.28);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      margin: 8px 0 14px;
     }
 
     .experience-place {
-      font-weight: 700;
-      color: #5d6877;
-      margin-bottom: 20px;
-    }
-
-    .experience-card ul {
-      color: #1b2b3c;
-      margin-left: 0;
-      list-style: none;
-    }
-
-    .experience-card li::before {
-      content: "✓";
-      color: var(--blue);
-      font-weight: bold;
-      margin-right: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
     /* ENTREPRISE */
     .company-card {
       background: linear-gradient(135deg, #0077cc, #00aaff);
-      border-radius: 16px;
-      padding: 34px;
       color: white;
-      box-shadow: 0 18px 40px rgba(0,170,255,0.22);
-      margin-bottom: 45px;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 18px 45px rgba(0,170,255,0.22);
+      margin-top: 24px;
     }
 
     .company-card h3 {
-      font-size: 1.7rem;
-      margin-bottom: 18px;
+      font-size: 1.5rem;
+      margin-bottom: 14px;
     }
 
     .company-card p {
       color: rgba(255,255,255,0.92);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .company-info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
     }
 
     .company-info {
       background: rgba(255,255,255,0.13);
       border-radius: 12px;
-      padding: 18px;
+      padding: 16px;
     }
 
     .company-info strong {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .company-info span {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.9);
     }
 
     /* CERTIFICATIONS */
-    .certifications-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 30px;
-    }
-
     .cert-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 34px;
       text-align: center;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      color: var(--dark-text);
-      min-height: 360px;
+      min-height: 330px;
     }
 
     .cert-icon {
-      width: 76px;
-      height: 76px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      background: var(--blue);
-      color: white;
+      background: rgba(0,170,255,0.14);
+      color: var(--blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      margin: 0 auto 22px;
-    }
-
-    .cert-card h3 {
-      margin-bottom: 14px;
-    }
-
-    .cert-card p {
-      color: #586477;
-      margin-bottom: 18px;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
     }
 
     .cert-status {
       color: var(--blue);
-      font-weight: 700;
-      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      margin-top: 12px;
     }
 
     /* COMPETENCES */
-    .skills-grid-custom {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-      gap: 30px;
-    }
-
-    .skill-card-custom {
-      background: #fff;
-      border-radius: 16px;
-      padding: 30px;
-      color: var(--dark-text);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.08);
-      min-height: 360px;
-    }
-
-    .skill-card-custom h3 {
+    .skill-card h3 {
       color: var(--blue);
-      margin-bottom: 26px;
-      font-size: 1.35rem;
+      margin-bottom: 24px;
     }
 
     .skill-item {
@@ -436,29 +392,36 @@
     .skill-header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 7px;
-      font-size: 0.95rem;
+      gap: 12px;
+      margin-bottom: 8px;
       font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .skill-header span:last-child {
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
     }
 
     .skill-bar {
-      height: 8px;
-      background: #e8edf3;
-      border-radius: 20px;
+      height: 7px;
+      background: rgba(255,255,255,0.09);
+      border-radius: 999px;
       overflow: hidden;
     }
 
     .skill-bar span {
       display: block;
       height: 100%;
-      background: linear-gradient(90deg, #006fd6, #00aaff);
-      border-radius: 20px;
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+      border-radius: 999px;
     }
 
-    /* TABLEAU SYNTHESE */
+    /* TABLEAU DE SYNTHESE */
     .synthesis-info {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 14px;
       margin: 22px 0;
     }
@@ -481,46 +444,75 @@
     }
 
     /* CONTACT */
-    .contact-links {
-      display: grid;
-      gap: 14px;
+    .contact-card p {
+      margin-bottom: 12px;
+      color: #c8c8d0;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav {
         padding: 0 18px;
       }
 
       nav ul {
-        gap: 12px;
-        font-size: 0.82rem;
+        gap: 14px;
         overflow-x: auto;
       }
 
-      .theme-btn {
-        display: none;
+      nav ul a {
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .company-info-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.8rem;
+      nav {
+        height: auto;
+        padding: 14px 18px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      section {
-        padding: 65px 18px;
+      nav ul {
+        width: 100%;
+        padding-bottom: 6px;
       }
 
-      .light-inner {
-        padding: 0 18px;
+      header {
+        padding-top: 150px;
+      }
+
+      .company-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -528,7 +520,7 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- MENU -->
   <nav>
     <div class="logo">GS.dev</div>
 
@@ -542,21 +534,30 @@
       <li><a href="#veille">Veille Technologique</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-
-    <button class="theme-btn" aria-label="Changer de thème">🌙</button>
   </nav>
 
-  <!-- ACCUEIL -->
+  <!-- ACCUEIL / PRESENTATION -->
   <header id="accueil">
     <div>
+      <div class="badge">BTS SIO · Option SISR · IMIE Paris</div>
+
       <h1>Guendouz<br><span>Souleyman</span></h1>
+
       <p>
-        Étudiant en BTS SIO option SISR à l’IMIE Paris,
-        en alternance au Ministère de l’Intérieur.
+        Étudiant en BTS SIO option SISR, je développe mes compétences en administration
+        systèmes et réseaux, cybersécurité et support informatique. Actuellement en
+        alternance au Ministère de l’Intérieur, je participe à des missions techniques
+        concrètes et à la mise en place de solutions adaptées aux besoins des utilisateurs.
+      </p>
+
+      <p style="margin-top:14px;">
+        <strong>Objectif :</strong> poursuivre en Bachelor ASRC (Administrateur Systèmes,
+        Réseaux et Cybersécurité), puis intégrer une entreprise en tant qu’administrateur
+        systèmes et réseaux.
       </p>
 
       <div class="hero-buttons">
-        <a href="#projects" class="button button-blue">Voir mes projets</a>
+        <a href="#projects" class="button button-primary">Voir mes projets</a>
         <a href="#contact" class="button">Me contacter</a>
       </div>
     </div>
@@ -567,39 +568,21 @@
     <div class="section-label">Formation</div>
     <h2>Mes formations</h2>
 
-    <div class="formation-grid">
-      <div class="card">
+    <div class="grid-2">
+      <div class="card formation-card">
         <h3>BTS SIO option SISR — IMIE Paris</h3>
         <p>Septembre 2024 → Août 2026</p>
-        <p style="margin-top:10px;color:var(--muted);">
-          Formation orientée systèmes, réseaux, cybersécurité, support informatique
-          et administration d’infrastructures.
+        <p style="margin-top:10px;">
+          Formation orientée administration systèmes, réseaux, infrastructures,
+          cybersécurité et support informatique.
         </p>
       </div>
 
-      <div class="card">
+      <div class="card formation-card">
         <h3>Baccalauréat STI2D</h3>
         <p>Lycée Le Corbusier</p>
-        <p style="margin-top:10px;color:var(--muted);">
-          2021 → 2023
-        </p>
+        <p style="margin-top:10px;">2021 → 2023</p>
       </div>
-    </div>
-
-    <div class="card">
-      <h3>À propos de moi</h3>
-      <p>
-        Étudiant en BTS SIO option SISR, je développe mes compétences en administration
-        systèmes et réseaux, cybersécurité et support informatique. Actuellement en
-        alternance au Ministère de l’Intérieur, je participe à des missions techniques
-        concrètes et à la mise en place de solutions adaptées aux besoins des utilisateurs.
-      </p>
-
-      <p style="margin-top:10px;">
-        <strong>Objectif :</strong> poursuivre en Bachelor ASRC (Administrateur
-        Systèmes, Réseaux et Cybersécurité), puis intégrer une entreprise en tant
-        qu’administrateur systèmes et réseaux.
-      </p>
     </div>
   </section>
 
@@ -608,6 +591,10 @@
     <div class="section-label">Projets</div>
     <h2>Mes projets</h2>
 
+    <p class="section-intro">
+      Voici plusieurs projets réalisés dans le cadre de ma formation BTS SIO option SISR.
+    </p>
+
     <div class="projects-grid">
 
       <div class="project">
@@ -615,9 +602,10 @@
         <p>Contrôleur de domaine Windows Server 2022 avec AD, DNS, DHCP, GPO et WDS.</p>
         <div class="tags">
           <span class="tag">Windows Server</span>
-          <span class="tag">AD</span>
+          <span class="tag">Active Directory</span>
           <span class="tag">DNS</span>
           <span class="tag">DHCP</span>
+          <span class="tag">GPO</span>
         </div>
         <a class="button" href="doc-ad.pdf" target="_blank">📄 Documentation</a>
       </div>
@@ -629,6 +617,7 @@
           <span class="tag">GLPI</span>
           <span class="tag">Linux</span>
           <span class="tag">Ticketing</span>
+          <span class="tag">LDAP</span>
         </div>
         <a class="button" href="projet-glpi.pdf" target="_blank">📄 Documentation</a>
       </div>
@@ -640,6 +629,7 @@
           <span class="tag">pfSense</span>
           <span class="tag">Firewall</span>
           <span class="tag">NAT</span>
+          <span class="tag">Sécurité réseau</span>
         </div>
         <a class="button" href="doc-pfsense.pdf" target="_blank">📄 Documentation</a>
       </div>
@@ -662,6 +652,7 @@
           <span class="tag">Asterisk</span>
           <span class="tag">VoIP</span>
           <span class="tag">SIP</span>
+          <span class="tag">Linux</span>
         </div>
         <a class="button" href="TP-Asterisk-cl.pdf" target="_blank">📄 Documentation</a>
       </div>
@@ -670,8 +661,8 @@
 
     <br><br>
 
-    <div class="section-label">BTS SIO — Épreuve E6</div>
-    <h2>Épreuve E6 : projets professionnels</h2>
+    <div class="section-label">Épreuve E6</div>
+    <h2>Projets professionnels E6</h2>
 
     <div class="projects-grid">
 
@@ -679,8 +670,7 @@
         <h3>📊 Centralisation des logs avec rsyslog</h3>
         <p>
           Mise en place d’un serveur de centralisation des journaux système à l’aide
-          de rsyslog, intégré à un environnement Active Directory. Cette solution permet
-          de collecter, organiser et analyser les logs de plusieurs machines.
+          de rsyslog, intégré à un environnement Active Directory.
         </p>
 
         <ul>
@@ -698,7 +688,7 @@
         </div>
 
         <a class="button" href="rsyslog-exam-doc.pdf" target="_blank">
-          📄 Télécharger la documentation Rsyslog
+          📄 Documentation Rsyslog
         </a>
       </div>
 
@@ -724,7 +714,7 @@
         </div>
 
         <a class="button" href="documentation-fog-project.pdf" target="_blank">
-          📄 Télécharger la documentation FOG
+          📄 Documentation FOG
         </a>
       </div>
 
@@ -732,275 +722,312 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="light-section">
-    <div class="light-inner">
+  <section id="experience">
+    <div class="section-label">Expérience</div>
+    <h2>Expérience professionnelle</h2>
 
-      <div class="section-center">
-        <h2>Expérience Professionnelle</h2>
-        <p>Mes différentes expériences et missions</p>
+    <p class="section-intro">
+      Mes expériences m’ont permis de développer des compétences techniques,
+      organisationnelles et relationnelles.
+    </p>
+
+    <div class="grid-3">
+
+      <div class="experience-card">
+        <div class="experience-icon">💻</div>
+        <h3>Technicien support informatique</h3>
+        <div class="experience-date">Sept. 2024 → Août 2026</div>
+        <div class="experience-place">Ministère de l’Intérieur</div>
+
+        <ul>
+          <li>Déploiement automatisé de postes via la masterisation</li>
+          <li>Installation et configuration de postes informatiques</li>
+          <li>Diagnostic et résolution de pannes matérielles et logicielles</li>
+          <li>Maintenance du parc informatique</li>
+          <li>Gestion et administration de l’Active Directory</li>
+        </ul>
       </div>
 
-      <div class="experience-grid">
+      <div class="experience-card">
+        <div class="experience-icon">⚙️</div>
+        <h3>Projets en alternance</h3>
+        <div class="experience-date">2024 → 2026</div>
+        <div class="experience-place">Environnement professionnel</div>
 
-        <div class="experience-card">
-          <div class="experience-icon">💻</div>
-          <h3>Technicien support informatique</h3>
-          <div class="experience-date">Sept. 2024 - Août 2026</div>
-          <div class="experience-place">Ministère de l’Intérieur</div>
-
-          <ul>
-            <li>Déploiement automatisé de postes via la masterisation</li>
-            <li>Installation et configuration de postes informatiques</li>
-            <li>Diagnostic et résolution de pannes matérielles et logicielles</li>
-            <li>Maintenance du parc informatique</li>
-            <li>Gestion et administration de l’Active Directory</li>
-          </ul>
-        </div>
-
-        <div class="experience-card">
-          <div class="experience-icon">🏢</div>
-          <h3>Projets en alternance</h3>
-          <div class="experience-date">2024 - 2026</div>
-          <div class="experience-place">Environnement professionnel</div>
-
-          <ul>
-            <li>Participation au bêta-test de WAPT</li>
-            <li>Participation au bêta-test d’un nouveau serveur de messagerie</li>
-            <li>Support aux utilisateurs</li>
-            <li>Gestion du parc informatique</li>
-            <li>Administration systèmes et réseaux</li>
-          </ul>
-        </div>
-
-        <div class="experience-card">
-          <div class="experience-icon">👥</div>
-          <h3>Animateur cantine et extra-scolaire</h3>
-          <div class="experience-date">Août 2023 - Août 2024</div>
-          <div class="experience-place">Mairie de Paris</div>
-
-          <ul>
-            <li>Encadrement des temps du déjeuner</li>
-            <li>Encadrement des temps du goûter</li>
-            <li>Aide aux devoirs</li>
-            <li>Organisation d’activités manuelles et sportives</li>
-            <li>Travail en équipe et gestion de groupe</li>
-          </ul>
-        </div>
-
+        <ul>
+          <li>Participation au bêta-test de WAPT</li>
+          <li>Participation au bêta-test d’un nouveau serveur de messagerie</li>
+          <li>Support aux utilisateurs</li>
+          <li>Gestion du parc informatique</li>
+          <li>Administration systèmes et réseaux</li>
+        </ul>
       </div>
 
-      <br><br>
+      <div class="experience-card">
+        <div class="experience-icon">👥</div>
+        <h3>Animateur cantine et extra-scolaire</h3>
+        <div class="experience-date">Août 2023 → Août 2024</div>
+        <div class="experience-place">Mairie de Paris</div>
 
-      <div class="section-center">
-        <h2>Mon Entreprise</h2>
-        <p>Mon environnement professionnel en alternance</p>
+        <ul>
+          <li>Encadrement des temps du déjeuner</li>
+          <li>Encadrement des temps du goûter</li>
+          <li>Aide aux devoirs</li>
+          <li>Organisation d’activités manuelles et sportives</li>
+          <li>Travail en équipe et gestion de groupe</li>
+        </ul>
       </div>
 
-      <div class="company-card">
-        <h3>🏢 Ministère de l’Intérieur</h3>
+    </div>
 
-        <p>
-          Actuellement en alternance au sein du Ministère de l’Intérieur,
-          j’interviens sur des missions de support informatique, d’administration
-          système et de maintenance du parc informatique. Cette expérience me permet
-          de travailler dans un environnement professionnel réel.
-        </p>
+    <div class="company-card">
+      <h3>🏢 Mon entreprise — Ministère de l’Intérieur</h3>
 
-        <div class="company-info-grid">
-          <div class="company-info">
-            <strong>📍 Localisation</strong>
-            <span>France</span>
-          </div>
+      <p>
+        Actuellement en alternance au sein du Ministère de l’Intérieur, j’interviens
+        sur des missions de support informatique, d’administration système et de
+        maintenance du parc informatique. Cette expérience me permet de travailler
+        dans un environnement professionnel réel.
+      </p>
 
-          <div class="company-info">
-            <strong>📅 Période</strong>
-            <span>Septembre 2024 → Août 2026</span>
-          </div>
+      <div class="company-info-grid">
+        <div class="company-info">
+          <strong>📍 Localisation</strong>
+          <span>France</span>
+        </div>
 
-          <div class="company-info">
-            <strong>💼 Poste</strong>
-            <span>Technicien support informatique en alternance</span>
-          </div>
+        <div class="company-info">
+          <strong>📅 Période</strong>
+          <span>Septembre 2024 → Août 2026</span>
+        </div>
 
-          <div class="company-info">
-            <strong>🖥️ Service</strong>
-            <span>Support informatique / systèmes et réseaux</span>
-          </div>
+        <div class="company-info">
+          <strong>💼 Poste</strong>
+          <span>Technicien support informatique en alternance</span>
+        </div>
+
+        <div class="company-info">
+          <strong>🖥️ Service</strong>
+          <span>Support informatique / systèmes et réseaux</span>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- CERTIFICATIONS -->
-  <section id="certifications" class="light-section">
-    <div class="light-inner">
-      <div class="section-center">
-        <h2>Mes Certifications</h2>
-        <p>Validation de mes compétences techniques</p>
+  <section id="certifications">
+    <div class="section-label">Certifications</div>
+    <h2>Mes certifications</h2>
+
+    <div class="grid-2">
+
+      <div class="cert-card">
+        <div class="cert-icon">🔐</div>
+        <h3>RGPD — Module 1</h3>
+        <p>
+          Certification portant sur le Règlement Général sur la Protection des Données,
+          ses notions clés et les bonnes pratiques de protection des données personnelles.
+        </p>
+        <div class="cert-status">📅 Obtenue en octobre 2024</div>
+
+        <a class="button" href="rgpd-module-1.pdf" target="_blank">
+          📄 Voir la certification
+        </a>
       </div>
 
-      <div class="certifications-grid">
-
-        <div class="cert-card">
-          <div class="cert-icon">🔐</div>
-          <h3>RGPD — Module 1</h3>
-          <p>
-            Certification portant sur le Règlement Général sur la Protection des Données,
-            ses notions clés et les bonnes pratiques de protection des données.
-          </p>
-          <div class="cert-status">📅 Obtenue en octobre 2024</div>
-
-          <a href="rgpd-module-1.pdf" target="_blank" class="button button-blue">
-            📄 Voir la certification
-          </a>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-icon">☁️</div>
-          <h3>Certification IBM Cloud</h3>
-          <p>
-            Formation IBM Cloud visant à acquérir les bases du cloud computing,
-            la gestion des services cloud et le déploiement de ressources.
-          </p>
-          <div class="cert-status">⏳ En cours</div>
-        </div>
-
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <h3>IBM Cloud</h3>
+        <p>
+          Formation IBM Cloud visant à acquérir les bases du cloud computing,
+          la gestion des services cloud et le déploiement de ressources.
+        </p>
+        <div class="cert-status">⏳ En cours</div>
       </div>
+
     </div>
   </section>
 
   <!-- COMPETENCES -->
-  <section id="competences" class="light-section">
-    <div class="light-inner">
-      <div class="section-center">
-        <h2>Mes compétences</h2>
-        <p>
-          Ces compétences ont été développées à travers mes projets techniques,
-          ma formation BTS SIO SISR et mon expérience en alternance.
-        </p>
+  <section id="competences">
+    <div class="section-label">Compétences</div>
+    <h2>Mes compétences</h2>
+
+    <p class="section-intro">
+      Ces compétences ont été développées à travers mes projets techniques,
+      ma formation BTS SIO SISR et mon expérience en alternance.
+    </p>
+
+    <div class="grid-3">
+
+      <div class="skill-card">
+        <h3>🖥️ Compétences techniques</h3>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Administration Systèmes</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar"><span style="width:85%"></span></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Réseaux & Infrastructure</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar"><span style="width:80%"></span></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Active Directory</span>
+            <span>75%</span>
+          </div>
+          <div class="skill-bar"><span style="width:75%"></span></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Cybersécurité</span>
+            <span>70%</span>
+          </div>
+          <div class="skill-bar"><span style="width:70%"></span></div>
+        </div>
       </div>
 
-      <div class="skills-grid-custom">
+      <div class="skill-card">
+        <h3>📄 Bureautique</h3>
 
-        <div class="skill-card-custom">
-          <h3>🖥️ Compétences Techniques</h3>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Administration Systèmes</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar"><span style="width:85%"></span></div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Microsoft Word</span>
+            <span>90%</span>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Réseaux & Infrastructure</span>
-              <span>80%</span>
-            </div>
-            <div class="skill-bar"><span style="width:80%"></span></div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Active Directory</span>
-              <span>75%</span>
-            </div>
-            <div class="skill-bar"><span style="width:75%"></span></div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Cybersécurité</span>
-              <span>70%</span>
-            </div>
-            <div class="skill-bar"><span style="width:70%"></span></div>
-          </div>
+          <div class="skill-bar"><span style="width:90%"></span></div>
         </div>
 
-        <div class="skill-card-custom">
-          <h3>📄 Bureautique</h3>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Microsoft Word</span>
-              <span>90%</span>
-            </div>
-            <div class="skill-bar"><span style="width:90%"></span></div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Microsoft Excel</span>
+            <span>85%</span>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Microsoft Excel</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar"><span style="width:85%"></span></div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>PowerPoint</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar"><span style="width:85%"></span></div>
-          </div>
+          <div class="skill-bar"><span style="width:85%"></span></div>
         </div>
 
-        <div class="skill-card-custom">
-          <h3>🌍 Langues</h3>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Français</span>
-              <span>Langue maternelle</span>
-            </div>
-            <div class="skill-bar"><span style="width:100%"></span></div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>PowerPoint</span>
+            <span>85%</span>
           </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Turc</span>
-              <span>Langue maternelle</span>
-            </div>
-            <div class="skill-bar"><span style="width:100%"></span></div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Anglais</span>
-              <span>Niveau courant</span>
-            </div>
-            <div class="skill-bar"><span style="width:70%"></span></div>
-          </div>
+          <div class="skill-bar"><span style="width:85%"></span></div>
         </div>
-
       </div>
+
+      <div class="skill-card">
+        <h3>🌍 Langues</h3>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Français</span>
+            <span>Langue maternelle</span>
+          </div>
+          <div class="skill-bar"><span style="width:100%"></span></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Turc</span>
+            <span>Langue maternelle</span>
+          </div>
+          <div class="skill-bar"><span style="width:100%"></span></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Anglais</span>
+            <span>Niveau courant</span>
+          </div>
+          <div class="skill-bar"><span style="width:70%"></span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- VEILLE -->
-  <section id="veille">
-    <div class="section-label">Veille technologique</div>
-    <h2>Veille technologique — Cybersécurité</h2>
+ 
+<section id="veille">
+  <div class="section-label">Veille technologique</div>
+  <h2>Veille technologique — Cybersécurité</h2>
 
-    <div class="card">
-      <p>
-        Ma veille technologique porte sur la cybersécurité des systèmes et réseaux :
-        menaces, protection des infrastructures, sécurisation d’Active Directory,
-        pare-feux, analyse des logs et bonnes pratiques de sécurité.
-      </p>
+  <div class="card">
+    <p>
+      Ma veille technologique porte sur la cybersécurité des systèmes et réseaux,
+      notamment la surveillance des vulnérabilités, des menaces et des recommandations
+      de sécurité publiées par les organismes officiels.
+    </p>
 
-      <ul>
-        <li>Suivi des cybermenaces : phishing, ransomware, malwares</li>
-        <li>Sécurisation des systèmes Windows et Linux</li>
-        <li>Gestion des accès et des identités</li>
-        <li>Analyse des journaux système et supervision</li>
-      </ul>
+    <ul>
+      <li>Suivi des vulnérabilités critiques et alertes de sécurité</li>
+      <li>Analyse des menaces : ransomware, phishing, malwares</li>
+      <li>Recommandations de sécurisation des systèmes</li>
+      <li>Surveillance des infrastructures et des services exposés</li>
+    </ul>
+  </div>
+
+  <!-- VEILLE RSS CERT-FR -->
+  <div class="rss-card">
+    <h3>📡 Veille automatisée — CERT‑FR (ANSSI)</h3>
+
+    <p>
+      Mise en place d’une veille automatisée en cybersécurité à partir du
+      <strong>flux RSS du CERT‑FR (ANSSI)</strong> afin de suivre en temps réel
+      les alertes de sécurité, vulnérabilités critiques et recommandations
+      officielles publiées par l’ANSSI.
+    </p>
+
+    <iframe
+      class="rss-iframe"
+      src="https://rss.app/embed/v1/list/oWVXKqT1MZJ3xw5k"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+      sandbox="allow-scripts allow-same-origin allow-popups">
+    <p>
+
+      Le tableau de synthèse présente les réalisations professionnelles effectuées
+      dans le cadre du BTS SIO option SISR. Il permet d’associer chaque réalisation
+      aux compétences attendues pour l’examen.
+    </p>
+
+    <div class="synthesis-info">
+      <div class="synthesis-item">
+        <strong>Option</strong>
+        <span>BTS SIO — SISR</span>
+      </div>
+
+      <div class="synthesis-item">
+        <strong>Session</strong>
+        <span>2024 → 2026</span>
+      </div>
+
+      <div class="synthesis-item">
+        <strong>Centre</strong>
+        <span>IMIE Paris</span>
+      </div>
+
+      <div class="synthesis-item">
+        <strong>Document</strong>
+        <span>Tableau de synthèse officiel</span>
+      </div>
     </div>
 
-    <br>
+    <a href="tableau-synthese.pdf" target="_blank" class="èse
+    </a>
 
+    <a href="tableau-synthese.pdf" download class="F
+    </a>
+  </div>
+</section>
     <div class="section-label">BTS SIO</div>
     <h2>Tableau de synthèse</h2>
 
@@ -1048,7 +1075,7 @@
     <div class="section-label">Contact</div>
     <h2>Me contacter</h2>
 
-    <div class="card contact-links">
+    <div class="card contact-card">
       <p>📧 <a href="mailto:souleymanguendouz20@gmail.com">souleymanguendouz20@gmail.com</a></p>
       <p>🔗 <a href="https://fr.linkedin.com/in/souleyman-guendouz-026957283" target="_blank">LinkedIn</a></p>
       <p>💻 <a href="https://github.com/gdz933ecole" target="_blank">GitHub</a></p>
@@ -1061,4 +1088,3 @@
 
 </body>
 </html>
-``

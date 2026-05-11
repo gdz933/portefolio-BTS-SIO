@@ -250,7 +250,6 @@
       background: rgba(0,170,255,0.06);
     }
 
-    /* TEXTES CARTES */
     .formation-card h3,
     .project h3,
     .experience-card h3,
@@ -270,7 +269,6 @@
       font-size: 0.94rem;
     }
 
-    /* PROJETS */
     .project {
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
@@ -423,7 +421,7 @@
       border-radius: 999px;
     }
 
-    /* RSS CERT-FR */
+    /* FLUX RSS CERT-FR */
     .rss-card {
       margin-top: 28px;
     }
@@ -434,16 +432,44 @@
     }
 
     .rss-card p {
+      color: #c8c8d0;
       margin-bottom: 20px;
+      font-size: 0.94rem;
     }
 
-    .rss-iframe {
-      width: 100%;
-      height: 600px;
+    .rss-feed-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .rss-feed-list li {
+      background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
       border-radius: 12px;
-      background: var(--bg);
+      padding: 16px;
+      color: #c8c8d0;
+    }
+
+    .rss-feed-list strong {
+      color: var(--text);
       display: block;
+      margin-bottom: 6px;
+    }
+
+    .rss-feed-list a {
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    .rss-feed-list small {
+      display: block;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      margin-bottom: 6px;
     }
 
     /* TABLEAU DE SYNTHESE */
@@ -471,7 +497,6 @@
       font-size: 0.9rem;
     }
 
-    /* CONTACT */
     .contact-card p {
       margin-bottom: 12px;
       color: #c8c8d0;
@@ -486,7 +511,6 @@
       font-size: 0.82rem;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav {
         padding: 0 18px;
@@ -547,10 +571,8 @@
 
 <body>
 
-  <!-- MENU -->
   <nav>
     <div class="logo">GS.dev</div>
-
     <ul>
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#formation">Formation</a></li>
@@ -563,11 +585,9 @@
     </ul>
   </nav>
 
-  <!-- ACCUEIL -->
   <header id="accueil">
     <div>
       <div class="badge">BTS SIO · Option SISR · IMIE Paris</div>
-
       <h1>Guendouz<br><span>Souleyman</span></h1>
 
       <p>
@@ -590,7 +610,6 @@
     </div>
   </header>
 
-  <!-- FORMATION -->
   <section id="formation">
     <div class="section-label">Formation</div>
     <h2>Mes formations</h2>
@@ -613,7 +632,6 @@
     </div>
   </section>
 
-  <!-- PROJETS -->
   <section id="projects">
     <div class="section-label">Projets</div>
     <h2>Mes projets</h2>
@@ -623,7 +641,6 @@
     </p>
 
     <div class="projects-grid">
-
       <div class="project">
         <h3>Serveur Active Directory</h3>
         <p>Contrôleur de domaine Windows Server 2022 avec AD, DNS, DHCP, GPO et WDS.</p>
@@ -683,7 +700,6 @@
         </div>
         <a class="button" href="TP-Asterisk.pdf" target="_blank">📄 Documentation</a>
       </div>
-
     </div>
 
     <br><br>
@@ -692,7 +708,6 @@
     <h2>Projets professionnels E6</h2>
 
     <div class="projects-grid">
-
       <div class="project">
         <h3>📊 Centralisation des logs avec rsyslog</h3>
         <p>
@@ -744,11 +759,9 @@
           📄 Documentation FOG
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-label">Expérience</div>
     <h2>Expérience professionnelle</h2>
@@ -759,7 +772,6 @@
     </p>
 
     <div class="grid-3">
-
       <div class="experience-card">
         <div class="experience-icon">💻</div>
         <h3>Technicien support informatique</h3>
@@ -801,7 +813,6 @@
           <li>Travail en équipe et gestion de groupe</li>
         </ul>
       </div>
-
     </div>
 
     <div class="company-card">
@@ -838,13 +849,11 @@
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="section-label">Certifications</div>
     <h2>Mes certifications</h2>
 
     <div class="grid-2">
-
       <div class="cert-card">
         <div class="cert-icon">🔐</div>
         <h3>RGPD — Module 1</h3>
@@ -854,7 +863,7 @@
         </p>
         <div class="cert-status">📅 Obtenue en octobre 2024</div>
 
-        <a class="button" href="MODULE1_LERGPDETSESNOTIONSCLÉS_AttestationduModule1.pdf" target="_blank">
+        <a class="button" href="rgpd-module-1.pdf" target="_blank">
           📄 Voir la certification
         </a>
       </div>
@@ -868,11 +877,9 @@
         </p>
         <div class="cert-status">⏳ En cours</div>
       </div>
-
     </div>
   </section>
 
-  <!-- COMPETENCES -->
   <section id="competences">
     <div class="section-label">Compétences</div>
     <h2>Mes compétences</h2>
@@ -883,7 +890,6 @@
     </p>
 
     <div class="grid-3">
-
       <div class="skill-card">
         <h3>🖥️ Compétences techniques</h3>
 
@@ -961,10 +967,10 @@
 
         <div class="skill-item">
           <div class="skill-header">
-            <span>espagnol</span>
+            <span>Espagnol</span>
             <span>Niveau scolaire</span>
           </div>
-          <div class="skill-bar"><span style="width:100%"></span></div>
+          <div class="skill-bar"><span style="width:55%"></span></div>
         </div>
 
         <div class="skill-item">
@@ -972,14 +978,12 @@
             <span>Anglais</span>
             <span>Niveau scolaire</span>
           </div>
-          <div class="skill-bar"><span style="width:70%"></span></div>
+          <div class="skill-bar"><span style="width:60%"></span></div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- VEILLE TECHNOLOGIQUE -->
   <section id="veille">
     <div class="section-label">Veille technologique</div>
     <h2>Veille technologique — Cybersécurité</h2>
@@ -1000,22 +1004,21 @@
     </div>
 
     <div class="rss-card">
-      <h3>📡 Veille automatisée — CERT‑FR (ANSSI)</h3>
+      <h3>📡 Veille automatisée — CERT-FR (ANSSI)</h3>
 
       <p>
-        Mise en place d’une veille automatisée en cybersécurité à partir du
-        <strong>flux RSS du CERT‑FR (ANSSI)</strong> afin de suivre en temps réel
-        les alertes de sécurité, vulnérabilités critiques et recommandations
-        officielles publiées par l’ANSSI.
+        Cette veille est alimentée automatiquement grâce au flux RSS officiel du CERT-FR.
+        Elle me permet de suivre régulièrement les alertes de sécurité, les vulnérabilités
+        critiques et les recommandations liées aux systèmes et réseaux.
       </p>
 
-      <iframe
-        class="rss-iframe"
-        src="https://rss.app/embed/v1/list/oWVXKqT1MZJ3xw5k"
-        loading="lazy"
-        referrerpolicy="no-referrer"
-        sandbox="allow-scripts allow-same-origin allow-popups">
-      </iframe>
+      <ul id="rss-feed" class="rss-feed-list">
+        <li>Chargement des alertes de sécurité…</li>
+      </ul>
+
+      <a class="button" href="https://www.cert.ssi.gouv.fr/" target="_blank">
+        🔗 Accéder au CERT-FR
+      </a>
     </div>
 
     <br><br>
@@ -1052,7 +1055,7 @@
         </div>
       </div>
 
-      <a href="tableau-synthèse.pdf" target="_blank" class="button">
+      <a href="tableau-synthese.pdf" target="_blank" class="button">
         📄 Voir le tableau de synthèse
       </a>
 
@@ -1062,7 +1065,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Contact</div>
     <h2>Me contacter</h2>
@@ -1078,5 +1080,29 @@
     © 2025 — Guendouz Souleyman · BTS SIO SISR
   </footer>
 
-</body>
-</html>
+  <script>
+    // ===== Flux RSS CERT-FR =====
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://www.cert.ssi.gouv.fr/feed/")
+      .then(response => response.json())
+      .then(data => {
+        const feed = document.getElementById("rss-feed");
+        if (!feed) return;
+
+        feed.innerHTML = "";
+
+        if (!data.items || data.items.length === 0) {
+          feed.innerHTML = "<li>Aucune alerte disponible pour le moment.</li>";
+          return;
+        }
+
+        data.items.slice(0, 5).forEach(item => {
+          const li = document.createElement("li");
+
+          const date = item.pubDate
+            ? new Date(item.pubDate).toLocaleDateString("fr-FR")
+            : "Date non disponible";
+
+          li.innerHTML = `
+            <small>${date}</small>
+            <strong>${item.title}</strong>
+            <a href="${item.link}" target="_blank

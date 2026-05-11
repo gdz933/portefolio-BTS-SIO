@@ -83,6 +83,7 @@
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
 
     nav ul a:hover {
@@ -173,7 +174,8 @@
     .project,
     .experience-card,
     .cert-card,
-    .skill-card {
+    .skill-card,
+    .rss-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -248,12 +250,13 @@
       background: rgba(0,170,255,0.06);
     }
 
-    /* FORMATION */
+    /* TEXTES CARTES */
     .formation-card h3,
     .project h3,
     .experience-card h3,
     .cert-card h3,
-    .skill-card h3 {
+    .skill-card h3,
+    .rss-card h3 {
       color: var(--text);
       margin-bottom: 10px;
     }
@@ -261,7 +264,8 @@
     .formation-card p,
     .project p,
     .experience-card p,
-    .cert-card p {
+    .cert-card p,
+    .rss-card p {
       color: #c8c8d0;
       font-size: 0.94rem;
     }
@@ -402,6 +406,7 @@
       color: var(--muted);
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
+      text-align: right;
     }
 
     .skill-bar {
@@ -416,6 +421,29 @@
       height: 100%;
       background: linear-gradient(90deg, var(--blue-dark), var(--blue));
       border-radius: 999px;
+    }
+
+    /* RSS CERT-FR */
+    .rss-card {
+      margin-top: 28px;
+    }
+
+    .rss-card h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .rss-card p {
+      margin-bottom: 20px;
+    }
+
+    .rss-iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      display: block;
     }
 
     /* TABLEAU DE SYNTHESE */
@@ -471,7 +499,6 @@
 
       nav ul a {
         font-size: 0.82rem;
-        white-space: nowrap;
       }
 
       .grid-2,
@@ -536,7 +563,7 @@
     </ul>
   </nav>
 
-  <!-- ACCUEIL / PRESENTATION -->
+  <!-- ACCUEIL -->
   <header id="accueil">
     <div>
       <div class="badge">BTS SIO · Option SISR · IMIE Paris</div>
@@ -827,7 +854,7 @@
         </p>
         <div class="cert-status">📅 Obtenue en octobre 2024</div>
 
-        <a class="button" href="MODULE1_LERGPDETSESNOTIONSCLÉS_AttestationduModule1.pdf" target="_blank">
+        <a class="button" href="rgpd-module-1.pdf" target="_blank">
           📄 Voir la certification
         </a>
       </div>
@@ -952,79 +979,47 @@
     </div>
   </section>
 
- 
-<section id="veille">
-  <div class="section-label">Veille technologique</div>
-  <h2>Veille technologique — Cybersécurité</h2>
+  <!-- VEILLE TECHNOLOGIQUE -->
+  <section id="veille">
+    <div class="section-label">Veille technologique</div>
+    <h2>Veille technologique — Cybersécurité</h2>
 
-  <div class="card">
-    <p>
-      Ma veille technologique porte sur la cybersécurité des systèmes et réseaux,
-      notamment la surveillance des vulnérabilités, des menaces et des recommandations
-      de sécurité publiées par les organismes officiels.
-    </p>
+    <div class="card">
+      <p>
+        Ma veille technologique porte sur la cybersécurité des systèmes et réseaux,
+        notamment la surveillance des vulnérabilités, des menaces et des recommandations
+        de sécurité publiées par les organismes officiels.
+      </p>
 
-    <ul>
-      <li>Suivi des vulnérabilités critiques et alertes de sécurité</li>
-      <li>Analyse des menaces : ransomware, phishing, malwares</li>
-      <li>Recommandations de sécurisation des systèmes</li>
-      <li>Surveillance des infrastructures et des services exposés</li>
-    </ul>
-  </div>
-
-  <!-- VEILLE RSS CERT-FR -->
-  <div class="rss-card">
-    <h3>📡 Veille automatisée — CERT‑FR (ANSSI)</h3>
-
-    <p>
-      Mise en place d’une veille automatisée en cybersécurité à partir du
-      <strong>flux RSS du CERT‑FR (ANSSI)</strong> afin de suivre en temps réel
-      les alertes de sécurité, vulnérabilités critiques et recommandations
-      officielles publiées par l’ANSSI.
-    </p>
-
-    <iframe
-      class="rss-iframe"
-      src="https://rss.app/embed/v1/list/oWVXKqT1MZJ3xw5k"
-      loading="lazy"
-      referrerpolicy="no-referrer"
-      sandbox="allow-scripts allow-same-origin allow-popups">
-    <p>
-
-      Le tableau de synthèse présente les réalisations professionnelles effectuées
-      dans le cadre du BTS SIO option SISR. Il permet d’associer chaque réalisation
-      aux compétences attendues pour l’examen.
-    </p>
-
-    <div class="synthesis-info">
-      <div class="synthesis-item">
-        <strong>Option</strong>
-        <span>BTS SIO — SISR</span>
-      </div>
-
-      <div class="synthesis-item">
-        <strong>Session</strong>
-        <span>2024 → 2026</span>
-      </div>
-
-      <div class="synthesis-item">
-        <strong>Centre</strong>
-        <span>IMIE Paris</span>
-      </div>
-
-      <div class="synthesis-item">
-        <strong>Document</strong>
-        <span>Tableau de synthèse officiel</span>
-      </div>
+      <ul>
+        <li>Suivi des vulnérabilités critiques et alertes de sécurité</li>
+        <li>Analyse des menaces : ransomware, phishing, malwares</li>
+        <li>Recommandations de sécurisation des systèmes</li>
+        <li>Surveillance des infrastructures et des services exposés</li>
+      </ul>
     </div>
 
-    <a href="tableau-synthese.pdf" target="_blank" class="èse
-    </a>
+    <div class="rss-card">
+      <h3>📡 Veille automatisée — CERT‑FR (ANSSI)</h3>
 
-    <a href="tableau-synthese.pdf" download class="F
-    </a>
-  </div>
-</section>
+      <p>
+        Mise en place d’une veille automatisée en cybersécurité à partir du
+        <strong>flux RSS du CERT‑FR (ANSSI)</strong> afin de suivre en temps réel
+        les alertes de sécurité, vulnérabilités critiques et recommandations
+        officielles publiées par l’ANSSI.
+      </p>
+
+      <iframe
+        class="rss-iframe"
+        src="https://rss.app/embed/v1/list/oWVXKqT1MZJ3xw5k"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        sandbox="allow-scripts allow-same-origin allow-popups">
+      </iframe>
+    </div>
+
+    <br><br>
+
     <div class="section-label">BTS SIO</div>
     <h2>Tableau de synthèse</h2>
 

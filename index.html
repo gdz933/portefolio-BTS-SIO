@@ -1080,7 +1080,7 @@
     © 2025 — Guendouz Souleyman · BTS SIO SISR
   </footer>
 
- <script>
+<script>
 
 async function loadRSS() {
 
@@ -1088,55 +1088,43 @@ async function loadRSS() {
 
   try {
 
-    const rssUrl =
-      "https://cert.ssi.gouv.fr/avis/feed";
-
     const response = await fetch(
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`
+      "https://api.rss2json.com/v1/api.json?rss_url=https://cert.ssi.gouv.fr/avis/feed"
     );
 
-    const xmlText = await response.text();
-
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlText, "text/xml");
-
-    const items = xml.querySelectorAll("item");
+    const data = await response.json();
 
     feed.innerHTML = "";
 
-    items.forEach((item, index) => {
+    if (!data.items || data.items.length === 0) {
 
-      if (index >= 5) return;
+      feed.innerHTML = `
+        <li>Aucune actualité disponible.</li>
+      `;
 
-      const title =
-        item.querySelector("title")?.textContent || "Sans titre";
+      return;
+    }
 
-      const link =
-        item.querySelector("link")?.textContent || "#";
-
-      const pubDate =
-        item.querySelector("pubDate")?.textContent || "";
-
-      const description =
-        item.querySelector("description")?.textContent || "";
-
-      const cleanDescription =
-        description.replace(/<[^>]+>/g, "");
+    data.items.slice(0, 5).forEach(item => {
 
       const li = document.createElement("li");
 
+      const description = item.description
+        .replace(/<[^>]*>/g, "")
+        .substring(0, 150);
+
       li.innerHTML = `
         <small>
-          ${new Date(pubDate).toLocaleDateString("fr-FR")}
+          ${new Date(item.pubDate).toLocaleDateString("fr-FR")}
         </small>
 
-        <strong>${title}</strong>
+        <strong>${item.title}</strong>
 
         <p>
-          ${cleanDescription.substring(0, 160)}...
+          ${description}...
         </p>
 
-        <a href="${link}" target="_blank">
+        <a href="${item.link}" target="_blank">
           Lire l'avis →
         </a>
       `;
@@ -1151,7 +1139,7 @@ async function loadRSS() {
 
     feed.innerHTML = `
       <li>
-        Impossible de charger les avis CERT-FR.
+        Impossible de charger les actualités CERT-FR.
       </li>
     `;
   }

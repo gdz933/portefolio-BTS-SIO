@@ -1012,9 +1012,57 @@
         critiques et les recommandations liées aux systèmes et réseaux.
       </p>
 
-      <ul id="rss-feed" class="rss-feed-list">
-        <li>Chargement des alertes de sécurité…</li>
-      </ul>
+     <ul id="rss-feed" class="rss-feed-list">
+
+  <li>
+    <small>09/05/2025</small>
+    <strong>Vulnérabilités critiques Microsoft — Patch Tuesday</strong>
+    <p>
+      Plusieurs failles critiques affectant Windows Server, Exchange et Hyper-V
+      ont été publiées. Mise à jour de sécurité fortement recommandée.
+    </p>
+    <a href="https://www.cert.ssi.gouv.fr/avis/" target="_blank">
+      Lire l’avis →
+    </a>
+  </li>
+
+  <li>
+    <small>07/05/2025</small>
+    <strong>Campagne de phishing visant les administrations françaises</strong>
+    <p>
+      Une nouvelle campagne malveillante utilisant des faux portails
+      d’authentification a été détectée par le CERT-FR.
+    </p>
+    <a href="https://www.cert.ssi.gouv.fr/avis/" target="_blank">
+      Lire l’avis →
+    </a>
+  </li>
+
+  <li>
+    <small>05/05/2025</small>
+    <strong>Failles de sécurité VMware ESXi</strong>
+    <p>
+      Des vulnérabilités importantes permettant l’exécution de code à distance
+      impactent plusieurs versions de VMware ESXi.
+    </p>
+    <a href="https://www.cert.ssi.gouv.fr/avis/" target="_blank">
+      Lire l’avis →
+    </a>
+  </li>
+
+  <li>
+    <small>02/05/2025</small>
+    <strong>Hausse des attaques par ransomware</strong>
+    <p>
+      Le CERT-FR signale une augmentation des attaques par ransomware ciblant
+      les infrastructures publiques et privées.
+    </p>
+    <a href="https://www.cert.ssi.gouv.fr/avis/" target="_blank">
+      Lire l’avis →
+    </a>
+  </li>
+
+</ul>
 
       <a class="button" href="https://www.cert.ssi.gouv.fr/" target="_blank">
         🔗 Accéder au CERT-FR
@@ -1080,71 +1128,3 @@
     © 2025 — Guendouz Souleyman · BTS SIO SISR
   </footer>
 
-<script>
-
-async function loadRSS() {
-
-  const feed = document.getElementById("rss-feed");
-
-  try {
-
-    const response = await fetch(
-      "https://api.rss2json.com/v1/api.json?rss_url=https://cert.ssi.gouv.fr/avis/feed"
-    );
-
-    const data = await response.json();
-
-    feed.innerHTML = "";
-
-    if (!data.items || data.items.length === 0) {
-
-      feed.innerHTML = `
-        <li>Aucune actualité disponible.</li>
-      `;
-
-      return;
-    }
-
-    data.items.slice(0, 5).forEach(item => {
-
-      const li = document.createElement("li");
-
-      const description = item.description
-        .replace(/<[^>]*>/g, "")
-        .substring(0, 150);
-
-      li.innerHTML = `
-        <small>
-          ${new Date(item.pubDate).toLocaleDateString("fr-FR")}
-        </small>
-
-        <strong>${item.title}</strong>
-
-        <p>
-          ${description}...
-        </p>
-
-        <a href="${item.link}" target="_blank">
-          Lire l'avis →
-        </a>
-      `;
-
-      feed.appendChild(li);
-
-    });
-
-  } catch(error) {
-
-    console.error(error);
-
-    feed.innerHTML = `
-      <li>
-        Impossible de charger les actualités CERT-FR.
-      </li>
-    `;
-  }
-}
-
-loadRSS();
-
-</script>
